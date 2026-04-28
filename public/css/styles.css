@@ -1,0 +1,282 @@
+/* Totem UCM - CSS Styles */
+/* Similar to the static HTML but standalone */
+
+:root {
+    --ucm-blue: #003366;
+    --ucm-gold: #FDB913;
+    --ucm-gray: #F0F2F5;
+}
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--ucm-gray);
+    color: #333;
+}
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-\[1vw\] { gap: 1vw; }
+.gap-\[2vw\] { gap: 2vw; }
+.gap-\[3vw\] { gap: 3vw; }
+
+/* Sizing */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.w-1\/2 { width: 50%; }
+.h-\[7\%\] { height: 7%; }
+.h-\[12\%\] { height: 12%; }
+.h-\[20\%\] { height: 20%; }
+.h-\[60\%\] { height: 60%; }
+.h-\[75\%\] { height: 75%; }
+.p-\[0\.8vh\] { padding: 0.8vh; }
+.p-\[0\.5vh\] { padding: 0.5vh; }
+.py-\[1\.5vh\] { padding-top: 1.5vh; padding-bottom: 1.5vh; }
+.px-\[5vw\] { padding-left: 5vw; padding-right: 5vw; }
+.px-\[2vw\] { padding-left: 2vw; padding-right: 2vw; }
+.py-\[2\.5vh\] { padding-top: 2.5vh; padding-bottom: 2.5vh; }
+.px-\[4vw\] { padding-left: 4vw; padding-right: 4vw; }
+.pr-\[3vw\] { padding-right: 3vw; }
+.pl-\[3\.5vw\] { padding-left: 3.5vw; }
+.pb-\[5vh\] { padding-bottom: 5vh; }
+.mb-\[0\.5vh\] { margin-bottom: 0.5vh; }
+.pr-\[2vw\] { padding-right: 2vw; }
+
+/* Colors */
+.bg-\[\#003366\] { background-color: #003366; }
+.bg-\[\#FDB913\] { background-color: #FDB913; }
+.bg-\[\#F0F2F5\] { background-color: #F0F2F5; }
+.bg-white { background-color: white; }
+.bg-gray-50 { background-color: #f9fafb; }
+.bg-gray-100 { background-color: #f3f4f6; }
+
+/* Text colors */
+.text-white { color: white; }
+.text-\[\#003366\] { color: #003366; }
+.text-\[\#FDB913\] { color: #FDB913; }
+.text-gray-400 { color: #9ca3af; }
+.text-gray-500 { color: #6b7280; }
+
+/* Typography - vh units for TV */
+.text-4k-huge { font-size: 3vh; line-height: 1; }
+.text-4k-title { font-size: 2.2vh; line-height: 1.1; }
+.text-4k-subtitle { font-size: 1.6vh; }
+.text-4k-body { font-size: 1vh; }
+.text-4k-small { font-size: 0.7vh; }
+
+.font-bold { font-weight: 700; }
+.font-light { font-weight: 300; }
+.font-black { font-weight: 900; }
+.uppercase { text-transform: uppercase; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-widest { letter-spacing: 0.1em; }
+.leading-none { line-height: 1; }
+.leading-tight { line-height: 1.2; }
+
+/* Borders */
+.border-r { border-right: 1px solid rgba(255,255,255,0.2); }
+.border-t { border-top: 1px solid #e5e7eb; }
+.border { border: 1px solid #e5e7eb; }
+.border-gray-200 { border-color: #e5e7eb; }
+
+/* Rounded */
+.rounded-xl { border-radius: 0.75rem; }
+.rounded-\[1\.2rem\] { border-radius: 1.2rem; }
+.rounded-\[2rem\] { border-radius: 2rem; }
+.rounded-full { border-radius: 9999px; }
+
+/* Shadows */
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+.shadow-inner { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); }
+.shadow-\[0_-5px_30px_rgba\(0\,0\,0\,0\.05\)\] { box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05); }
+.shadow-\[0_10px_40px_rgba\(0\,51\,102\,0\.08\)\] { box-shadow: 0 10px 40px rgba(0, 51, 102, 0.08); }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.top-1\/2 { top: 50%; }
+.-left-\[1\.8vh\] { left: -1.8vh; }
+.-translate-y-1\/2 { transform: translateY(-50%); }
+
+/* Z-index */
+.z-10 { z-index: 10; }
+.z-50 { z-index: 50; }
+
+/* Logo container */
+.h-\[75\%\] {
+    height: 75%;
+}
+
+/* Image display block */
+.img-block {
+    display: block;
+}
+
+/* Ensure images fill containers */
+.object-cover {
+    object-fit: cover;
+    display: block;
+}
+
+.object-contain {
+    object-fit: contain;
+    display: block;
+}
+
+/* Aspect ratio */
+.aspect-video { aspect-ratio: 16/9; }
+.aspect-square { aspect-ratio: 1/1; }
+
+/* Shrink */
+.shrink-0 { flex-shrink: 0; }
+
+/* Flex grow */
+.flex-1 { flex: 1 1 0%; }
+
+/* Main carousel */
+#main-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hero track */
+#hero-track {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    width: 100%;
+}
+
+.hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+/* Main carousel */
+#main-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main-slide-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+.main-slide-item.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* Hero slide image container */
+.hero-slide > div:first-child {
+    width: 60%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide > div:first-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hero slide text container */
+.hero-slide > div:last-child {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4vw;
+    position: relative;
+}
+
+/* Main slide item */
+.main-slide-item {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+.main-slide-item.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.main-slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Logo image */
+img[alt="Logo UCM"] {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Footer images */
+.h-full.aspect-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.h-full.aspect-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Utility classes */
+.w-\[60\%\] { width: 60%; }
+.w-\[40\%\] { width: 40%; }
+
+/* Background overlay */
+.bg-black\/5 { background-color: rgba(0, 0, 0, 0.05); }
+.bg-\[003366\]\/10 { background-color: rgba(0, 51, 102, 0.1); }
+
+/* Text alignment */
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+/* White opacity */
+.text-white\/80 { color: rgba(255, 255, 255, 0.8); }

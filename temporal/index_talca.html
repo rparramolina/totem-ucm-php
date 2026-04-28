@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Totem Admisión UCM 2026 - Completo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Iconos Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        :root {
+            --ucm-blue: #003366;
+            --ucm-gold: #FDB913;
+            --ucm-gray: #F0F2F5;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            /* CRÍTICO: Sin scroll */
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--ucm-gray);
+            color: #333;
+        }
+
+        /* --- TIPOGRAFÍA (vh units) --- */
+        .text-4k-huge {
+            font-size: 3vh;
+            line-height: 1;
+        }
+
+        .text-4k-title {
+            font-size: 2.2vh;
+            line-height: 1.1;
+        }
+
+        .text-4k-subtitle {
+            font-size: 1.6vh;
+        }
+
+        .text-4k-body {
+            font-size: 1vh;
+        }
+
+        .text-4k-small {
+            font-size: 0.7vh;
+        }
+
+        /* --- HERO SLIDER SUPERIOR --- */
+        #hero-track {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Decoración Hero Slider */
+        .triangle-deco {
+            width: 0;
+            height: 0;
+            border-top: 1.5vh solid transparent;
+            border-bottom: 1.5vh solid transparent;
+            border-right: 2vh solid var(--ucm-blue);
+        }
+
+        .triangle-deco-gold {
+            width: 0;
+            height: 0;
+            border-top: 1.5vh solid transparent;
+            border-bottom: 1.5vh solid transparent;
+            border-right: 2vh solid var(--ucm-gold);
+        }
+
+        /* --- EFECTO CARRUSEL CENTRAL (FADE) --- */
+        .main-slide-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            /* Transición suave de 1 segundo entre imágenes */
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+
+        .main-slide-item.active {
+            opacity: 1;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col w-full h-full bg-[#F0F2F5]">
+
+    <!-- ========================================== -->
+    <!-- 1. HEADER (7%)                             -->
+    <!-- ========================================== -->
+    <header
+        class="h-[7%] bg-[#003366] text-white px-[5vw] flex justify-between items-center shrink-0 shadow-xl relative z-50">
+        <!-- Logo UCM -->
+        <div class="bg-white px-[2vw] py-[0.8vh] rounded-xl shadow-inner h-[75%] flex items-center">
+            <img src="https://images.griddo.ucm.cl/logo-ucm-fdc7556e-fa16-4e78-a558-69dfbde3d0d2" alt="Logo UCM"
+                class="h-full w-auto object-contain">
+        </div>
+
+        <!-- Fecha, Campus y Reloj -->
+        <div class="flex items-center gap-[3vw]">
+            <div class="text-right border-r border-white/20 pr-[3vw] h-[60%] flex flex-col justify-center">
+                <div class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider" id="date-display">
+                    Cargando...</div>
+                <div class="text-white/80 text-4k-small font-light">Campus San Miguel</div>
+            </div>
+            <div class="flex items-center gap-[1vw]">
+                <i class="ph-fill ph-clock text-[#FDB913] text-4k-subtitle"></i>
+                <span class="text-4k-huge font-light tabular-nums leading-none" id="clock">--:--</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. CONTENIDO PRINCIPAL (Resto del espacio) -->
+    <!-- ========================================== -->
+    <main class="flex-1 w-full px-[5vw] py-[2.5vh] flex flex-col gap-[2.5vh] overflow-hidden relative z-10">
+
+        <!-- A. HERO SLIDER SUPERIOR (20%) -->
+        <section class="h-[20%] w-full rounded-[2rem] overflow-hidden shadow-lg z-10 shrink-0 bg-white">
+            <div id="hero-track">
+                <!-- Slide 1 -->
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://images.griddo.ucm.cl/c/cover/q/70/w/1800/f/jpeg/fondo-seccion-vive-la-experiencia-ucm-1-5c54990a-59ba-4ec8-81e8-770c609f933a"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#003366] text-white flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco"></div>
+                        <h2 class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider mb-[0.5vh]">Admisión
+                            2026</h2>
+                        <h1 class="font-bold text-4k-title leading-tight">Bienvenidos al proceso de matrícula</h1>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://totems.ucm.cl/images_talca/A.jpg" class="w-full h-full object-cover"
+                            onerror="this.src='https://images.griddo.ucm.cl/c/cover/q/70/w/1800/f/jpeg/fondo-seccion-vive-la-experiencia-ucm-1-5c54990a-59ba-4ec8-81e8-770c609f933a'">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#003366] text-white flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco"></div>
+                        <h2 class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider mb-[0.5vh]">COMUNIDAD
+                            UCM</h2>
+                        <h1 class="font-bold text-4k-title leading-tight">Vive la experiencia UCM</h1>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://images.griddo.ucm.cl/c/inside/q/75/w/755/h/424.6875/f/jpeg/ucm-campus-sanmiguel_1"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#FDB913] text-[#003366] flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco-gold"></div>
+                        <h2 class="text-white font-black text-4k-body uppercase tracking-wider mb-[0.5vh]">Espíritu UCM
+                        </h2>
+                        <h1 class="font-black text-4k-title leading-tight">Vocación que inspira</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. CARRUSEL CENTRAL DE AFICHES (Ocupa el resto de la altura) -->
+        <section
+            class="flex-1 w-full bg-gray-50 rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,51,102,0.08)] relative border border-[rgba(0,51,102,0.03)] z-10">
+
+            <!-- Slide 1: Día Propiedad Intelectual -->
+            <div class="main-slide-item active bg-white">
+                <img src="images_talca/pantalla_informativa_dia_PI.jpg" class="w-full h-full object-contain"
+                    alt="Día de la Propiedad Intelectual 2026">
+            </div>
+
+            <!-- Slide 2: Acreditación Institucional (Reemplaza a Año Académico) -->
+            <div class="main-slide-item bg-white">
+                <img src="images_talca/JUNTOS.png" class="w-full h-full object-contain"
+                    alt="Juntos avanzamos a la Acreditación Institucional">
+            </div>
+
+            <!-- Slide 3: Entrega TNE -->
+            <div class="main-slide-item bg-white">
+                <img src="images_talca/entrega_tne.jpg" class="w-full h-full object-contain" alt="Entrega TNE 2026">
+            </div>
+
+            <!-- Slide 4: Revalidación TNE -->
+            <div class="main-slide-item bg-white">
+                <img src="images_talca/revalidacion_tne.jpg" class="w-full h-full object-contain"
+                    alt="Revalidación TNE 2026">
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 3. FOOTER (12%)                            -->
+    <!-- ========================================== -->
+    <footer
+        class="h-[12%] bg-white px-[5vw] flex items-center justify-between shadow-[0_-5px_30px_rgba(0,0,0,0.05)] z-50 border-t border-gray-100 shrink-0">
+
+        <!-- Información Izquierda -->
+        <div class="w-1/2 pr-[2vw] flex flex-col justify-center">
+            <div class="flex items-center gap-[1vw] mb-[0.5vh]">
+                <div class="bg-[#003366] p-[0.8vh] rounded-full">
+                    <i class="ph-fill ph-map-pin text-white text-4k-subtitle"></i>
+                </div>
+                <h2 class="text-4k-title font-bold text-[#003366]">¿Buscas tu sala?</h2>
+            </div>
+            <p class="text-4k-subtitle text-gray-500 pl-[3.5vw] leading-tight">
+                Escanea para descargar el mapa.
+            </p>
+        </div>
+
+        <!-- Recursos Derecha (Imágenes Locales) -->
+        <div class="w-1/2 flex gap-[2vw] h-full items-center justify-end py-[1.5vh]">
+            <div
+                class="h-full aspect-video rounded-[1.2rem] overflow-hidden border border-gray-200 relative bg-gray-50 shadow-sm">
+                <img src="images_talca/vista_general.webp" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/5"></div>
+            </div>
+            <div
+                class="h-full aspect-square bg-white border border-gray-200 p-[0.5vh] rounded-[1.2rem] shadow-md flex flex-col items-center justify-center">
+                <!-- Imagen del nuevo QR actualizada -->
+                <img src="images_talca/qr_ucm.jpeg" class="w-full h-full object-contain" alt="QR UCM">
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS                                    -->
+    <!-- ========================================== -->
+    <script>
+        // --- 1. LÓGICA DEL RELOJ (Sincronizado por API HTTPS) ---
+        let serverTimeOffset = 0; // Guardará la diferencia entre la hora real y la hora del PC
+
+        async function syncTime() {
+            try {
+                // Obtenemos la hora exacta de Chile desde un servidor público usando HTTPS
+                const response = await fetch('https://worldtimeapi.org/api/timezone/America/Santiago');
+                if (!response.ok) throw new Error('Error al conectar con el servidor de tiempo');
+
+                const data = await response.json();
+
+                // Hora exacta entregada por el servidor
+                const realTime = new Date(data.datetime);
+                // Hora actual del PC
+                const localTime = new Date();
+
+                // Calculamos la diferencia en milisegundos
+                serverTimeOffset = realTime.getTime() - localTime.getTime();
+
+                console.log("Reloj sincronizado con éxito. Desfase corregido:", serverTimeOffset, "ms");
+            } catch (error) {
+                console.warn("No se pudo sincronizar la hora por internet. Usando reloj local.", error.message);
+            }
+        }
+
+        function updateClock() {
+            // Obtenemos la hora local y le sumamos/restamos el desfase calculado
+            const now = new Date(new Date().getTime() + serverTimeOffset);
+
+            // Forzamos la zona horaria por si acaso
+            const chileTimeZone = 'America/Santiago';
+
+            document.getElementById('clock').textContent = now.toLocaleTimeString('es-CL', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: chileTimeZone
+            });
+
+            const options = {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                timeZone: chileTimeZone
+            };
+            const dateStr = now.toLocaleDateString('es-CL', options);
+            document.getElementById('date-display').textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+        }
+
+        // Iniciar el reloj inmediatamente y luego sincronizar
+        updateClock();
+        setInterval(updateClock, 1000); // Actualizar cada segundo
+
+        // Sincronizar con internet al cargar y luego cada 1 hora para mantener precisión
+        syncTime();
+        setInterval(syncTime, 3600000);
+
+        // --- 2. LÓGICA DEL HERO SLIDER SUPERIOR (DESPLAZAMIENTO) ---
+        const heroTrack = document.getElementById('hero-track');
+        let currentHeroSlide = 0;
+        const totalHeroSlides = 3;
+
+        function nextHeroSlide() {
+            if (totalHeroSlides > 0) {
+                currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+                heroTrack.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+            }
+        }
+        // Cambia cada 6 segundos
+        setInterval(nextHeroSlide, 6000);
+
+
+        // --- 3. LÓGICA DEL CARRUSEL CENTRAL (FADE) ---
+        const mainSlides = document.querySelectorAll('.main-slide-item');
+        let currentMainSlide = 0;
+
+        // Tiempo en milisegundos (5000ms = 5 segundos)
+        const mainSlideInterval = 5000;
+
+        function nextMainSlide() {
+            if (mainSlides.length > 0) {
+                // Quita la clase 'active' de la imagen actual (se desvanece)
+                mainSlides[currentMainSlide].classList.remove('active');
+
+                // Calcula la siguiente imagen, volviendo a 0 si llega al final
+                currentMainSlide = (currentMainSlide + 1) % mainSlides.length;
+
+                // Agrega la clase 'active' a la nueva imagen (aparece)
+                mainSlides[currentMainSlide].classList.add('active');
+            }
+        }
+
+        // Inicia el ciclo solo si hay más de 1 imagen
+        if (mainSlides.length > 1) {
+            setInterval(nextMainSlide, mainSlideInterval);
+        }
+    </script>
+</body>
+
+</html>

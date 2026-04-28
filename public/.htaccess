@@ -1,0 +1,21 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Route /talca to index.php
+    RewriteCond %{REQUEST_URI} ^/talca(/.*)?$
+    RewriteRule ^(talca/.*)?$ index.php [L]
+    
+    # Route /curico to index.php
+    RewriteCond %{REQUEST_URI} ^/curico(/.*)?$
+    RewriteRule ^(curico/.*)?$ index.php [L]
+    
+    # Route /api/* to api.php
+    RewriteCond %{REQUEST_URI} ^/api/?
+    RewriteRule ^api/(.*)$ api.php?$1 [L,QSA]
+    
+    # Route /admin/* to admin.php
+    RewriteCond %{REQUEST_URI} ^/admin/?
+    RewriteRule ^admin/(.*)$ admin.php?$1 [L,QSA]
+</IfModule>

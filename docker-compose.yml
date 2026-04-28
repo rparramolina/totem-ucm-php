@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=totem_ucm
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d totem_ucm"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  php-app:
+    build: .
+    restart: always
+    ports:
+      - "3001:80"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=totem_ucm
+      - DB_USER=user
+      - DB_PASSWORD=password
+      - DATABASE_URL=pgsql://user:password@db:5432/totem_ucm
+      - JWT_SECRET=ucm-totem-super-secret-key-2026
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./public:/var/www/html/public:ro
+      - ./src:/var/www/html/src:ro
+      - ./uploads:/var/www/html/public/uploads
+      - ./temporal:/var/www/html/temporal:ro
+
+volumes:
+  pgdata:

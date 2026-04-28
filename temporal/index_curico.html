@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Totem Admisión UCM 2026 - Carrusel Central 4K</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        :root {
+            --ucm-blue: #003366;
+            --ucm-gold: #FDB913;
+            --ucm-gray: #F0F2F5;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            /* CRÍTICO: Sin scroll */
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--ucm-gray);
+            color: #333;
+        }
+
+        /* --- TIPOGRAFÍA (vh units) --- */
+        .text-4k-huge {
+            font-size: 3vh;
+            line-height: 1;
+        }
+
+        .text-4k-title {
+            font-size: 2.2vh;
+            line-height: 1.1;
+        }
+
+        .text-4k-subtitle {
+            font-size: 1.6vh;
+        }
+
+        .text-4k-body {
+            font-size: 1vh;
+        }
+
+        .text-4k-small {
+            font-size: 0.7vh;
+        }
+
+        /* --- HERO SLIDER SUPERIOR --- */
+        #hero-track {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Decoración Hero Slider */
+        .triangle-deco {
+            width: 0;
+            height: 0;
+            border-top: 1.5vh solid transparent;
+            border-bottom: 1.5vh solid transparent;
+            border-right: 2vh solid var(--ucm-blue);
+        }
+
+        .triangle-deco-gold {
+            width: 0;
+            height: 0;
+            border-top: 1.5vh solid transparent;
+            border-bottom: 1.5vh solid transparent;
+            border-right: 2vh solid var(--ucm-gold);
+        }
+
+        /* --- EFECTO CARRUSEL CENTRAL (FADE) --- */
+        .main-slide-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            /* Transición suave de 1 segundo entre imágenes */
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+
+        .main-slide-item.active {
+            opacity: 1;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col w-full h-full bg-[#F0F2F5]">
+
+    <header
+        class="h-[7%] bg-[#003366] text-white px-[5vw] flex justify-between items-center shrink-0 shadow-xl relative z-50">
+        <div class="bg-white px-[2vw] py-[0.8vh] rounded-xl shadow-inner h-[75%] flex items-center">
+            <img src="https://images.griddo.ucm.cl/logo-ucm-fdc7556e-fa16-4e78-a558-69dfbde3d0d2" alt="Logo UCM"
+                class="h-full w-auto object-contain">
+        </div>
+
+        <div class="flex items-center gap-[3vw]">
+            <div class="text-right border-r border-white/20 pr-[3vw] h-[60%] flex flex-col justify-center">
+                <div class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider" id="date-display">
+                    Cargando...</div>
+                <div class="text-white/80 text-4k-small font-light">Campus Curicó</div>
+            </div>
+            <div class="flex items-center gap-[1vw]">
+                <i class="ph-fill ph-clock text-[#FDB913] text-4k-subtitle"></i>
+                <span class="text-4k-huge font-light tabular-nums leading-none" id="clock">--:--</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 w-full px-[5vw] py-[2.5vh] flex flex-col gap-[2.5vh] overflow-hidden relative z-10">
+
+        <section class="h-[20%] w-full rounded-[2rem] overflow-hidden shadow-lg z-10 shrink-0 bg-white">
+            <div id="hero-track">
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://images.griddo.ucm.cl/c/cover/q/70/w/1800/f/jpeg/fondo-seccion-vive-la-experiencia-ucm-1-5c54990a-59ba-4ec8-81e8-770c609f933a"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#003366] text-white flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco"></div>
+                        <h2 class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider mb-[0.5vh]">Admisión
+                            2026</h2>
+                        <h1 class="font-bold text-4k-title leading-tight">Bienvenidos al proceso de matrícula</h1>
+                    </div>
+                </div>
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://images.griddo.ucm.cl/c/cover/q/70/w/1800/f/jpeg/fondo-seccion-vive-la-experiencia-ucm-1-5c54990a-59ba-4ec8-81e8-770c609f933a"
+                            class="w-full h-full object-cover"
+                            onerror="this.src='https://images.griddo.ucm.cl/c/cover/q/70/w/1800/f/jpeg/fondo-seccion-vive-la-experiencia-ucm-1-5c54990a-59ba-4ec8-81e8-770c609f933a'">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#003366] text-white flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco"></div>
+                        <h2 class="text-[#FDB913] font-bold text-4k-body uppercase tracking-wider mb-[0.5vh]">COMUNIDAD
+                            UCM</h2>
+                        <h1 class="font-bold text-4k-title leading-tight">Vive la experiencia UCM</h1>
+                    </div>
+                </div>
+                <div class="hero-slide flex">
+                    <div class="w-[60%] relative h-full">
+                        <img src="https://images.griddo.ucm.cl/c/inside/q/75/w/755/h/424.6875/f/jpeg/ucm-campus-sanmiguel_1"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-[#003366]/10"></div>
+                    </div>
+                    <div class="w-[40%] bg-[#FDB913] text-[#003366] flex flex-col justify-center px-[4vw] relative">
+                        <div class="absolute top-1/2 -left-[1.8vh] -translate-y-1/2 triangle-deco-gold"></div>
+                        <h2 class="text-white font-black text-4k-body uppercase tracking-wider mb-[0.5vh]">Espíritu UCM
+                        </h2>
+                        <h1 class="font-black text-4k-title leading-tight">Vocación que inspira</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="flex-1 w-full bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,51,102,0.08)] relative border border-[rgba(0,51,102,0.03)] z-10 flex items-center justify-center">
+
+            <div class="main-slide-item active w-full h-full flex items-center justify-center bg-white">
+                <img src="images_curico/JUNTOS.png" class="w-full h-full object-contain"
+                    alt="Acreditación Institucional">
+            </div>
+
+            <div class="main-slide-item w-full h-full flex items-center justify-center bg-white">
+                <img src="images_curico/entrega_tne.jpg.jpg" class="w-full h-full object-contain"
+                    alt="Entrega TNE Estudiantes Nuevos">
+            </div>
+
+            <div class="main-slide-item w-full h-full flex items-center justify-center bg-white">
+                <img src="images_curico/revalidacion_tne.jpg.jpg" class="w-full h-full object-contain"
+                    alt="Revalidación TNE 2026">
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="h-[12%] w-full z-50 shrink-0 shadow-[0_-5px_30px_rgba(0,0,0,0.1)] bg-[#263584]">
+
+    </footer>
+
+    <script>
+        // --- 1. LÓGICA DEL RELOJ (Usando reloj local para evitar bloqueos de red) ---
+        function updateClock() {
+            const now = new Date();
+            const chileTimeZone = 'America/Santiago';
+
+            document.getElementById('clock').textContent = now.toLocaleTimeString('es-CL', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: chileTimeZone
+            });
+
+            const options = {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                timeZone: chileTimeZone
+            };
+            const dateStr = now.toLocaleDateString('es-CL', options);
+            document.getElementById('date-display').textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+        }
+
+        // Iniciar el reloj de inmediato y actualizar cada segundo
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // --- 2. LÓGICA DEL HERO SLIDER SUPERIOR ---
+        const heroTrack = document.getElementById('hero-track');
+        let currentHeroSlide = 0;
+        const totalHeroSlides = 3;
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+            heroTrack.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+        }
+        setInterval(nextHeroSlide, 6000);
+
+        // --- 3. LÓGICA DEL CARRUSEL CENTRAL ---
+        const mainSlides = document.querySelectorAll('.main-slide-item');
+        let currentMainSlide = 0;
+        const mainSlideInterval = 5000;
+
+        function nextMainSlide() {
+            mainSlides[currentMainSlide].classList.remove('active');
+            currentMainSlide = (currentMainSlide + 1) % mainSlides.length;
+            mainSlides[currentMainSlide].classList.add('active');
+        }
+
+        if (mainSlides.length > 1) {
+            setInterval(nextMainSlide, mainSlideInterval);
+        }
+    </script>
+</body>
+
+</html>
