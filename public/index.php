@@ -140,7 +140,7 @@ $dateStr = $dayName . ', ' . $day . ' de ' . $monthName;
 
             <!-- Main Carousel (remaining height) -->
             <section
-                class="flex-1 w-full bg-gray-50 rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,51,102,0.08)] relative border z-10"
+                class="flex-1 w-full bg-gray-50 rounded-[2rem] overflow-hidden shadow-[0_10px_40px_rgba(0,51,102,0.08)] relative border z-10 mt-[15px]"
                 id="main-carousel">
                 <!-- Slides loaded via JS -->
             </section>

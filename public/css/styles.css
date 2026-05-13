@@ -280,3 +280,7 @@ img[alt="Logo UCM"] {
 
 /* White opacity */
 .text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+
+/* Padding */
+.pt-\[15px\] { padding-top: 15px; }
+.mt-\[15px\] { margin-top: 15px; }
