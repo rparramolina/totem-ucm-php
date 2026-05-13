@@ -113,7 +113,7 @@ $dateStr = $dayName . ', ' . $day . ' de ' . $monthName;
         <!-- Header (7%) -->
         <header
             class="h-[7%] bg-[#003366] text-white px-[5vw] flex justify-between items-center shrink-0 shadow-xl relative z-50">
-            <div class="bg-white px-[2vw] py-[0.8vh] rounded-xl shadow-inner h-[75%] flex items-center">
+            <div class="px-[2vw] py-[0.8vh] h-[75%] flex items-center">
                 <img src="<?= $settings['logo_url'] ?>" alt="Logo UCM" class="h-full w-auto object-contain"
                     style="display: block;">
             </div>
