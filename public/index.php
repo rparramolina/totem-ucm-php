@@ -61,6 +61,7 @@ $dateStr = $dayName . ', ' . $day . ' de ' . $monthName;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totem UCM - <?= ucfirst($sede) ?></title>
+    <meta http-equiv="refresh" content="30">
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
